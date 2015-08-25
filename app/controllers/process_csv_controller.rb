@@ -15,7 +15,9 @@ class ProcessCsvController < ApplicationController
 	@filecsv = CSV.read(file.path).uniq! { |a| a.first }
 	@filecsv = @filecsv.uniq! { |a| a[3]}
 	header = @filecsv.first
-	cant_rows_per_file = 250;
+	numRows = params[:numFiles]
+	numRows = numRows[:num].to_i
+	cant_rows_per_file = numRows;
 	numFiles = @filecsv.size/cant_rows_per_file
 	
 	for i in 0..numFiles

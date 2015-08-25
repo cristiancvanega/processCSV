@@ -1,5 +1,7 @@
 <h1>ProcessCSV#index</h1>
 <%= form_tag import_process_csv_index_path, multipart: true do %>
-	<%= file_field_tag :file %>
-	<%= submit_tag "Import CSV" %>
+	<%= file_field_tag :file %><br><br>
+	<%= label_tag(:q, "Number of Files:") %><br>
+	<%= number_field(:numFiles, :num, in: 2..250, step: 1) %><br><br>
+	<%= submit_tag "Process File" %>
 <% end %>
